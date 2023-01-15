@@ -19,5 +19,8 @@ export default defineNuxtConfig({
     },
     image: {
         dir: 'static'
+    },
+    nitro: {
+        preset: 'netlify'
     }
 })
