@@ -2,7 +2,7 @@
 <template>
   <div>
     <header class="shadow-sm bg-white">
-      <nav class="container p-4 flex justify-between">
+      <nav class="p-4 flex justify-between">
         <ul class="flex gap-4">
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/contact">Contact</NuxtLink></li>
@@ -10,9 +10,8 @@
       </nav>
     </header>
 
-    <!-- output the page content -->
     <div class="bg-gradient-to-b from-blue-100 to-white-100">
-      <div class="container p-4">
+      <div class="p-4">
         <slot />
       </div>
     </div>
@@ -21,6 +20,6 @@
 
 <style scoped>
 .router-link-exact-active {
-  color: #3490DC;
+  color: #2E2EFF;
 }
 </style>
