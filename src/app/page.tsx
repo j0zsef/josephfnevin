@@ -12,7 +12,7 @@ const Home = () => {
         <span>
           <b>Current Technologies:</b>
           {' '}
-          React, Go, AWS, Ruby on Rails.
+          React, AWS, Go, Ruby on Rails.
         </span>
         <br />
         <span>
