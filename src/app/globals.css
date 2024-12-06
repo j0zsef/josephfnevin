@@ -1,1 +1,38 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~bootswatch/dist/flatly/bootstrap.min.css";
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article {
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 576px) {
+    img {
+        max-width: 320px;
+        height: auto;
+    }
+
+    pre {
+        max-width: 320px;
+        height: auto;
+    }
+}

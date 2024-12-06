@@ -8,6 +8,7 @@ const Contact = () => {
   return (
     <main>
       <section>
+        <h1>Contact</h1>
         <p>
           Please feel free to reach out to me on any of these platforms. Email being best.
         </p>
