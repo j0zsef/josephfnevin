@@ -35,6 +35,7 @@ const Home = () => {
             BSE, Electrical Engineering, University of Iowa.
           </span>
         </p>
+        <img alt="face" src="/images/face.jpg" />
       </section>
     </main>
   );

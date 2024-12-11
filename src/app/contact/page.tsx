@@ -3,6 +3,7 @@
 import {
   Linkedin, Github, TwitterX, EnvelopeFill,
 } from 'react-bootstrap-icons';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const Contact = () => {
   return (
@@ -12,32 +13,32 @@ const Contact = () => {
         <p>
           Please feel free to reach out to me on any of these platforms. Email being best.
         </p>
-        <ul>
-          <li>
+        <ListGroup>
+          <ListGroupItem>
             <a href="mailto:josephfnevin@gmail.com">
-              <EnvelopeFill style={{ height: '1rem', width: '1rem' }} />
-              <span style={{ marginLeft: '0.25rem' }}>Email</span>
+              <EnvelopeFill />
+              <span>Email</span>
             </a>
-          </li>
-          <li>
+          </ListGroupItem>
+          <ListGroupItem>
             <a href="https://www.linkedin.com/in/joseph-nevin-2a0b56113/">
-              <Linkedin style={{ height: '1rem', width: '1rem' }} />
-              <span style={{ marginLeft: '0.25rem' }}>LinkedIn</span>
+              <Linkedin />
+              <span>LinkedIn</span>
             </a>
-          </li>
-          <li>
+          </ListGroupItem>
+          <ListGroupItem>
             <a href="https://github.com/j0zsef">
-              <Github style={{ height: '1rem', width: '1rem' }} />
-              <span style={{ marginLeft: '0.25rem' }}>GitHub</span>
+              <Github />
+              <span>GitHub</span>
             </a>
-          </li>
-          <li>
+          </ListGroupItem>
+          <ListGroupItem>
             <a href="https://x.com/JozsefNevin">
-              <TwitterX style={{ height: '1rem', width: '1rem' }} />
-              <span style={{ marginLeft: '0.25rem' }}>Twitter</span>
+              <TwitterX />
+              <span>Twitter</span>
             </a>
-          </li>
-        </ul>
+          </ListGroupItem>
+        </ListGroup>
       </section>
     </main>
   );
