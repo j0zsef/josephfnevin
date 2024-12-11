@@ -25,11 +25,11 @@ const Projects = () => {
             const filePath = path.join(directoryPath, fileName);
             const fileStats = fs.statSync(filePath);
             return (
-              <ListGroupItem key={slug} className="project-item">
+              <ListGroupItem key={slug}>
                 <span className="project-date">
                   {`[${fileStats.birthtime.toLocaleDateString()}] `}
                 </span>
-                <Link href={`/projects/${slug}`} className="project-title">
+                <Link href={`/projects/${slug}`}>
                   {humanize(slug)}
                 </Link>
               </ListGroupItem>

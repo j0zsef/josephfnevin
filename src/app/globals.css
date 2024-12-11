@@ -1,22 +1,58 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~bootswatch/dist/flatly/bootstrap.min.css";
 
+:root {
+    --background-gradient: linear-gradient(135deg, whitesmoke, white);
+    --section-bg: var(--background-gradient);
+    --article-bg: var(--background-gradient);
+    --text-color: black;
+    --hover-bg: whitesmoke;
+    --pre-bg: whitesmoke;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    --background-gradient: linear-gradient(135deg, #333, #444);
+    --section-bg: var(--background-gradient);
+    --article-bg: var(--background-gradient);
+    --text-color: white;
+    --hover-bg: #555;
+    --pre-bg: #333;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+    color: var(--text-color);
+}
+
 section {
+    background: var(--section-bg);
+    box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
     margin: 1.25rem auto;
     padding: 1.25rem;
-    background: linear-gradient(135deg, whitesmoke, white);
     border-radius: 0.625rem;
-    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 article {
+    background: var(--article-bg);
+    box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
     margin: 1.25rem auto;
     padding: 1.25rem;
     border-radius: 0.5rem;
-    background: linear-gradient(135deg, whitesmoke, white);
-    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+pre {
+    background: var(--pre-bg);
+    box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
+    border-radius: 0.5rem;
+    padding: 0.625rem;
+}
+
+.list-group-item:hover {
+    background: var(--hover-bg);
+    transition: background 0.3s ease;
 }
 
 h1 {
@@ -28,18 +64,6 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-}
-
-pre {
-    background: whitesmoke;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
-    padding: 0.625rem;
-}
-
-.list-group-item:hover {
-    background: whitesmoke;
-    transition: background 0.3s ease;
 }
 
 .bi {
