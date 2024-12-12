@@ -1,46 +1,51 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
-@import "~bootswatch/dist/flatly/bootstrap.min.css";
 
 :root {
     --background-gradient: linear-gradient(135deg, whitesmoke, white);
     --section-bg: var(--background-gradient);
     --article-bg: var(--background-gradient);
-    --text-color: black;
+    --navbar-bg: whitesmoke;
     --hover-bg: whitesmoke;
-    --pre-bg: whitesmoke;
+    --pre-bg: white;
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
-[data-theme="dark"] {
+[data-bs-theme="dark"] {
     --background-gradient: linear-gradient(135deg, #333, #444);
     --section-bg: var(--background-gradient);
     --article-bg: var(--background-gradient);
-    --text-color: white;
+    --navbar-bg: var(--background-gradient);
     --hover-bg: #555;
-    --pre-bg: #333;
+    --pre-bg: var(--bs-body-bg);
     --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
-body {
-    color: var(--text-color);
+.navbar {
+    background: var(--navbar-bg);
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 section {
     background: var(--section-bg);
     box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
-    margin: 1.25rem auto;
     padding: 1.25rem;
-    border-radius: 0.625rem;
+    border-radius: 0.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 article {
-    background: var(--article-bg);
+    background: var(--section-bg);
     box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
-    margin: 1.25rem auto;
     padding: 1.25rem;
     border-radius: 0.5rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-group-item:hover {
+    background: var(--hover-bg);
+    transition: background 0.3s ease;
 }
 
 pre {
@@ -48,11 +53,10 @@ pre {
     box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
     border-radius: 0.5rem;
     padding: 0.625rem;
-}
 
-.list-group-item:hover {
-    background: var(--hover-bg);
-    transition: background 0.3s ease;
+    code {
+        color: var(--bs-code-color);
+    }
 }
 
 h1 {

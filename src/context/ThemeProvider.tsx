@@ -16,10 +16,13 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<string>('light');
+  const [theme, setTheme] = useState<string>(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    document.documentElement.setAttribute('data-bs-theme', theme);
   }, [theme]);
 
   return (

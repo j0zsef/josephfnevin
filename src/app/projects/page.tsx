@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import * as fs from 'node:fs';
 import path from 'node:path';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
+import ListGroupItem from '@/components/ListGroupItem';
 
 function humanize(str: string) {
   return str
@@ -26,7 +27,7 @@ const Projects = () => {
             const fileStats = fs.statSync(filePath);
             return (
               <ListGroupItem key={slug}>
-                <span className="project-date">
+                <span>
                   {`[${fileStats.birthtime.toLocaleDateString()}] `}
                 </span>
                 <Link href={`/projects/${slug}`}>

@@ -3,13 +3,10 @@
 import {
   Linkedin, Github, TwitterX, EnvelopeFill,
 } from 'react-bootstrap-icons';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
-import { useContext } from 'react';
-import { ThemeContext } from '@/context/ThemeProvider';
+import { ListGroup } from 'react-bootstrap';
+import ListGroupItem from '@/components/ListGroupItem';
 
 const Contact = () => {
-  const themeCtx = useContext(ThemeContext);
-
   return (
     <main>
       <section>
@@ -18,25 +15,25 @@ const Contact = () => {
           Please feel free to reach out to me on any of these platforms. Email being best.
         </p>
         <ListGroup>
-          <ListGroupItem variant={themeCtx?.theme}>
+          <ListGroupItem>
             <a href="mailto:josephfnevin@gmail.com">
               <EnvelopeFill />
               <span>Email</span>
             </a>
           </ListGroupItem>
-          <ListGroupItem variant={themeCtx?.theme}>
+          <ListGroupItem>
             <a href="https://www.linkedin.com/in/joseph-nevin-2a0b56113/">
               <Linkedin />
               <span>LinkedIn</span>
             </a>
           </ListGroupItem>
-          <ListGroupItem variant={themeCtx?.theme}>
+          <ListGroupItem>
             <a href="https://github.com/j0zsef">
               <Github />
               <span>GitHub</span>
             </a>
           </ListGroupItem>
-          <ListGroupItem variant={themeCtx?.theme}>
+          <ListGroupItem>
             <a href="https://x.com/JozsefNevin">
               <TwitterX />
               <span>Twitter</span>
