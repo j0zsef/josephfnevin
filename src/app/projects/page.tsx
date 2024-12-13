@@ -28,7 +28,7 @@ const Projects = () => {
             return (
               <ListGroupItem key={slug}>
                 <span>
-                  {`[${fileStats.birthtime.toLocaleDateString()}] `}
+                  {`[${fileStats.mtime.toLocaleDateString()}] `}
                 </span>
                 <Link href={`/projects/${slug}`}>
                   {humanize(slug)}

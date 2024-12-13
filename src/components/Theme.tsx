@@ -3,6 +3,7 @@
 import { Button } from 'react-bootstrap';
 import { useContext } from 'react';
 import { ThemeContext } from '@/context/ThemeProvider';
+import { MoonStarsFill, SunFill } from 'react-bootstrap-icons';
 
 const ThemeToggle = () => {
   const themeCtx = useContext(ThemeContext);
@@ -13,8 +14,8 @@ const ThemeToggle = () => {
   };
 
   return (
-    <Button onClick={() => onThemeToggle()}>
-      {themeCtx?.theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+    <Button className="theme-selector" variant={themeCtx?.theme} onClick={() => onThemeToggle()}>
+      {themeCtx?.theme === 'dark' ? <SunFill /> : <MoonStarsFill />}
     </Button>
   );
 };

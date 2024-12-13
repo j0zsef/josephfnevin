@@ -1,23 +1,25 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
 :root {
-    --background-gradient: linear-gradient(135deg, whitesmoke, white);
-    --section-bg: var(--background-gradient);
-    --article-bg: var(--background-gradient);
-    --navbar-bg: whitesmoke;
-    --hover-bg: whitesmoke;
+    --background: linear-gradient(135deg, whitesmoke, lightgray);
+    --section-bg: var(--background);
+    --article-bg: var(--background);
+    --navbar-bg: var(--background);
+    --hover-bg: var(--background);
     --pre-bg: white;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --theme-selector-color: black;
 }
 
 [data-bs-theme="dark"] {
-    --background-gradient: linear-gradient(135deg, #333, #444);
-    --section-bg: var(--background-gradient);
-    --article-bg: var(--background-gradient);
-    --navbar-bg: var(--background-gradient);
-    --hover-bg: #555;
+    --background: linear-gradient(135deg, #444, #333);
+    --section-bg: var(--background);
+    --article-bg: var(--background);
+    --navbar-bg: var(--background);
+    --hover-bg: var(--background);
     --pre-bg: var(--bs-body-bg);
     --shadow-color: rgba(0, 0, 0, 0.5);
+    --theme-selector-color: white;
 }
 
 .navbar {
@@ -41,6 +43,30 @@ article {
     padding: 1.25rem;
     border-radius: 0.5rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.theme-selector {
+    background: inherit;
+    border: 0;
+    .bi {
+        height: 1.5rem;
+        fill: var(--theme-selector-color);
+    }
+
+    :active {
+        background: transparent;
+    }
+    :hover {
+        background: transparent;
+    }
+}
+
+.theme-selector:active {
+    background: transparent !important;
+}
+
+.theme-selector:hover {
+    background: transparent;
 }
 
 .list-group-item:hover {
