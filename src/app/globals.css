@@ -81,6 +81,8 @@ pre {
     padding: 0.625rem;
 
     code {
+        font-family: 'Fira Code', monospace;
+        font-size: 0.9rem;
         color: var(--bs-code-color);
     }
 }
