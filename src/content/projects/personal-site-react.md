@@ -63,8 +63,7 @@ Lastly, the theme styling is defined with variables for light and dark mode:
 ```
 
 ## Deployment
-I deployed the site using AWS. I used S3 to host the site and Cloudfront to serve the site. I also used Route 53 to manage the domain.
-TBD - I will write a blog post on how I deployed the site.
+I deployed the site using Netlify. I used Netlify to host the site and manage the domain.
 
 ## Sources
 - Source Code: [here](https://github.com/j0zsef/josephfnevin)
