@@ -4,7 +4,7 @@ const Error = () => {
   return (
     <main>
       <section>
-        You've encountered an error. Please try again later.
+        You&#39;ve encountered an error. Please try again later.
       </section>
 
     </main>

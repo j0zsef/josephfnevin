@@ -5,18 +5,19 @@ import {
   SetStateAction,
   useState,
   Dispatch,
-  ReactNode, useEffect,
+  ReactNode, useEffect, useMemo,
 } from 'react';
 
 interface ThemeContextType {
-    theme: string;
-    setTheme: Dispatch<SetStateAction<string | null>>;
+    theme: string | undefined;
+    setTheme: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<string | null>(null);
+  const [theme, setTheme] = useState<string | undefined>(undefined);
+  const value = useMemo(() => ({ theme, setTheme }), [theme]);
 
   // run once on mount
   useEffect(() => {
@@ -32,12 +33,12 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [theme]);
 
-  if (theme === null) {
-    return null;
+  if (theme === undefined) {
+    return undefined;
   }
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );

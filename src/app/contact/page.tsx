@@ -20,6 +20,7 @@ const Contact = () => {
               <EnvelopeFill />
               <span>Email</span>
             </a>
+            <span> josephfnevin@gmail.com</span>
           </ListGroupItem>
           <ListGroupItem>
             <a href="https://www.linkedin.com/in/joseph-nevin-2a0b56113/">

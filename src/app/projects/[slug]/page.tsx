@@ -2,6 +2,15 @@ import ReactMarkdown from 'react-markdown';
 import * as fs from 'node:fs';
 import path from 'node:path';
 
+export async function generateStaticParams() {
+  const directoryPath = path.join(process.cwd(), 'src', 'content', 'projects');
+  const fileNames = fs.readdirSync(directoryPath);
+  return fileNames.map((fileName) => {
+    const slug = fileName.replace(/\.md$/, '');
+    return { slug };
+  });
+}
+
 const Project = async ({ params }: { params: Promise<{ slug: string }> }) => {
   const { slug } = await params;
   const filePath = path.join(process.cwd(), 'src', 'content', 'projects', `${slug}.md`);
