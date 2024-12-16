@@ -6,15 +6,11 @@ professionally for the past year and wanted to showcase my (basic/moderate) skil
 Another reason for this rebuild was to display some of my projects. I felt that Next would be a good choice for this because of the dynamic routing.
 Also, I am a fan of the opinionated structure of Next. It makes development easier and faster.
 
-Finally, I wanted to learn how to deploy a React site using AWS. I have deployed websites professionally using Terraform and Cloudfront. 
-In addition, I deployed my previous personal site using Netlify. It was time for a new challenge.
-
-
 ## Frontend Technologies
 - React
 - Next
 - React-Bootstrap
-- AWS
+- Netlify
 
 ## UI
 For the theme, I stuck with the regular bootstrap styling. There are some minor tweaks but overall it is the normal bootstrap style.
@@ -29,12 +25,23 @@ const onThemeToggle = () => {
 };
 ```
 
-In the context, the `data-bs-theme` attribute and local storage are updated:
+In the context, the `data-bs-theme` attribute and local storage are updated with the theme:
 ```typescript
+const [theme, setTheme] = useState<string | undefined>(undefined);
+
+// run once on mount
 useEffect(() => {
-    localStorage.setItem('theme', theme);
-    document.documentElement.setAttribute('data-bs-theme', theme);
-  }, [theme]);
+    const storedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(storedTheme);
+    document.documentElement.setAttribute('data-bs-theme', storedTheme);
+}, []);
+
+useEffect(() => {
+    if (theme) {
+        localStorage.setItem('theme', theme);
+        document.documentElement.setAttribute('data-bs-theme', theme);
+    }
+}, [theme]);
 ```
 
 Lastly, the theme styling is defined with variables for light and dark mode:
@@ -63,7 +70,37 @@ Lastly, the theme styling is defined with variables for light and dark mode:
 ```
 
 ## Deployment
-I deployed the site using Netlify. I used Netlify to host the site and manage the domain.
+I used Netlify to host the site and manage the domain. Netlify can link directly to
+the GitHub repository and deploy the site with a click of a button.
+
+Next makes the deployment process easy with `pnpm build` which aliased to `next build`. However, generating a static
+site with Next, takes a few steps:
+
+1) The `next.config.ts` needs to be updated:
+```typescript
+const nextConfig: NextConfig = {
+  images: { unoptimized: true },
+  output: 'export',
+  reactStrictMode: true,
+};
+```
+
+2) The dynamic routes for the projects `src/app/projects[slug].tsx`, needed a function `generateStaticParams()` to 
+generate the paths:
+```typescript
+export async function generateStaticParams() {
+  const directoryPath = path.join(process.cwd(), 'src', 'content', 'projects');
+  const fileNames = fs.readdirSync(directoryPath);
+  return fileNames.map((fileName) => {
+    const slug = fileName.replace(/\.md$/, '');
+    return { slug };
+  });
+}
+```
+
+3) Running `pnpm build` will generate the static site in the `out` directory.
+4) Use Netlify to deploy the static site or upload to S3/Cloudfront or deployment of choice.
+ 
 
 ## Sources
 - Source Code: [here](https://github.com/j0zsef/josephfnevin)
