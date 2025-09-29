@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 import * as fs from 'node:fs';
 import path from 'node:path';
 
@@ -19,7 +19,7 @@ const Project = async ({ params }: { params: Promise<{ slug: string }> }) => {
   return (
     <main>
       <article>
-        <ReactMarkdown>{content}</ReactMarkdown>
+        <MarkdownRenderer content={content} />
       </article>
     </main>
   );

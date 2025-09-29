@@ -9,15 +9,18 @@ import {
 } from 'react';
 
 interface ThemeContextType {
-    theme: string | undefined;
-    setTheme: Dispatch<SetStateAction<string | undefined>>;
+  isDark: boolean;
+  theme: string | undefined;
+  setTheme: Dispatch<SetStateAction<string | undefined>>;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<string | undefined>(undefined);
-  const value = useMemo(() => ({ theme, setTheme }), [theme]);
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const value = useMemo(() => ({ theme, setTheme, isDark }), [theme, isDark]);
+
 
   // run once on mount
   useEffect(() => {
@@ -30,6 +33,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
     if (theme) {
       localStorage.setItem('theme', theme);
       document.documentElement.setAttribute('data-bs-theme', theme);
+      setIsDark(theme === 'dark');
     }
   }, [theme]);
 
