@@ -31,6 +31,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint/eslint-plugin',
+    'jsx-a11y',
   ],
   rules: {
     'arrow-body-style': 'off',
@@ -39,6 +40,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': [
       'error',
       {

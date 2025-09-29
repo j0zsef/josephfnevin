@@ -69,6 +69,52 @@ Lastly, the theme styling is defined with variables for light and dark mode:
 }
 ```
 
+## Syntax Highlighting
+
+For syntax highlighting, I used `react-syntax-highlighter` with the `material` themes. I used this example straight from their [docs](https://github.com/remarkjs/react-markdown?tab=readme-ov-file#use-custom-components-syntax-highlight).
+
+However, this did not bode well with Typescript and eslint. I had to make some modifications to get it to work:
+```typescript
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { materialDark, materialLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import React, { useContext } from 'react';
+import { ThemeContext } from '@/context/ThemeProvider';
+
+import type { Components } from 'react-markdown';
+
+type MarkdownRendererProps = {
+    content: string;
+};
+
+const MarkdownCodeBlock: Components['code'] = ({ children, className, ...props }) => {
+    const themeCtx = useContext(ThemeContext);
+    const isDark = themeCtx?.isDark;
+    const match = /language-(\w+)/.exec(className || '');
+
+    return match ? (
+        <SyntaxHighlighter language={match[1]} showLineNumbers style={isDark ? materialDark : materialLight} >
+            {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+    ) : (
+        <code className={className} {...props}>
+            {children}
+        </code>
+    );
+};
+
+const MarkdownComponents: Components = {
+    code: MarkdownCodeBlock,
+};
+
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
+    <ReactMarkdown components={MarkdownComponents}>
+        {content}
+    </ReactMarkdown>
+);
+
+```
+
 ## Deployment
 I used Netlify to host the site and manage the domain. Netlify can link directly to
 the GitHub repository and deploy the site with a click of a button.
